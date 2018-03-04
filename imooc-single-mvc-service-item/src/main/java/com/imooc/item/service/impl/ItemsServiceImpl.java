@@ -17,6 +17,12 @@ public class ItemsServiceImpl implements ItemsService {
 	public Items getItem(String itemId) {	
 		return itemsMapper.selectByPrimaryKey(itemId);
 	}
+	
+	@Override
+	public int getItemCounts(String itemId) {
+		Items item = itemsMapper.selectByPrimaryKey(itemId);
+		return item.getCounts();
+	}
 
 	@Override
 	public void displayReduceCounts(String itemId, int buyCounts) {
